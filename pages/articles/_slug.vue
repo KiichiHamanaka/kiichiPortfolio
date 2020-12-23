@@ -1,13 +1,14 @@
 <template>
-  <div class="container">
+  <div>
     {{ article.title }}
-
     <nuxt-content :document="article" />
   </div>
 </template>
 
-<script>
-export default {
+<script lang="ts">
+import Vue from 'vue'
+
+export default Vue.extend({
   components: {},
   async asyncData({ $content, params }) {
     const article = await $content(`articles/${params.slug}`).fetch()
@@ -16,5 +17,5 @@ export default {
       article,
     }
   },
-}
+})
 </script>
