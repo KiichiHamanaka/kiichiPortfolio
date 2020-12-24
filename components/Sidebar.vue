@@ -1,10 +1,13 @@
 <template>
-  <div class="sidebar">
-    <ul>
-      <li v-for="url in urlList" :key="url.title">
-        <nuxt-link :to="url.path">{{ url.title }}</nuxt-link>
-      </li>
-    </ul>
+  <v-navigation-drawer app>
+    <v-list>
+      <v-list-item v-for="url in urlList" :key="url.title">
+        <v-list-item-avatar></v-list-item-avatar>
+        <v-list-item-content>
+          <nuxt-link :to="url.path">{{ url.title }}</nuxt-link>
+        </v-list-item-content>
+      </v-list-item>
+    </v-list>
     <iframe
       style="background-color: transparent"
       width="135"
@@ -12,7 +15,7 @@
       src="https://weep.jp/embed/harbot/"
     >
     </iframe>
-  </div>
+  </v-navigation-drawer>
 </template>
 
 <script lang="ts">
