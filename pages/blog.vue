@@ -1,25 +1,14 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">kiichiPortfolio</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
+  <div>
+    <h1>貴一のブログ</h1>
+    <!-- カードのコンポーネントにしたい -->
+    <div v-for="article in articles" :key="article">
+      <div class="card">
+        <img class="card-img" :src="getImage(article.image)" alt="title" />
+        <nuxt-link :to="article.path">
+          {{ article.title }}
+          {{ article.createdAt }}
+        </nuxt-link>
       </div>
     </div>
   </div>
@@ -28,38 +17,22 @@
 <script lang="ts">
 import Vue from 'vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  async asyncData({ $content }) {
+    const articles = await $content('articles').limit(20).fetch()
+    return {
+      articles,
+    }
+  },
+  methods: {
+    getImage(image: string) {
+      const imagePath: string = image || '@/assets/images/noImage.jpg'
+      return {
+        imagePath,
+      }
+    },
+  },
+})
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>

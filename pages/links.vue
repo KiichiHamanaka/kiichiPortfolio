@@ -1,5 +1,5 @@
 <template>
-  <div class="container">なんか書く</div>
+  <div class="container">準備中</div>
 </template>
 
 <script lang="ts">

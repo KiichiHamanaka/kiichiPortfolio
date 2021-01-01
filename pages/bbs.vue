@@ -1,65 +1,33 @@
 <template>
-  <div class="container">
-    <div>
-      <Logo />
-      <h1 class="title">kiichiPortfolio</h1>
-      <div class="links">
-        <a
-          href="https://nuxtjs.org/"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--green"
-        >
-          Documentation
-        </a>
-        <a
-          href="https://github.com/nuxt/nuxt.js"
-          target="_blank"
-          rel="noopener noreferrer"
-          class="button--grey"
-        >
-          GitHub
-        </a>
-      </div>
-    </div>
+  <div>
+    <h2>BBS</h2>
+    <p class="">
+      キリ番報告はこちらから♪<br />
+      他にも管理人KIICHIへのご意見・ご要望など自由にカキコしてください(*´∀｀)<br />
+      以下のような荒らしは絶対禁止です！<br />
+    </p>
+    <ul>
+      <li>下ネタや誹謗・中傷ネタの投稿</li>
+      <li>「○○するだけでお金がもらえる」のような書き込み</li>
+      <li>マナーの悪い書き込み</li>
+      <li>その他管理人が不適切と判断した記事の投稿</li>
+    </ul>
+    <bbs-post-form />
+    <bbs-get-form />
   </div>
 </template>
 
 <script lang="ts">
 import Vue from 'vue'
+import bbsGetForm from '~/components/bbs-get-form.vue'
+import bbsPostForm from '~/components/bbs-post-form.vue'
 
-export default Vue.extend({})
+export default Vue.extend({
+  components: {
+    bbsGetForm,
+    bbsPostForm,
+  },
+})
 </script>
 
-<style>
-.container {
-  margin: 0 auto;
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-
-.title {
-  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
-    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
-  display: block;
-  font-weight: 300;
-  font-size: 100px;
-  color: #35495e;
-  letter-spacing: 1px;
-}
-
-.subtitle {
-  font-weight: 300;
-  font-size: 42px;
-  color: #526488;
-  word-spacing: 5px;
-  padding-bottom: 15px;
-}
-
-.links {
-  padding-top: 15px;
-}
-</style>
+<style></style>
