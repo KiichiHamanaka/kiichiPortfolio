@@ -1,6 +1,6 @@
 <template>
   <div>
-    <li v-for="url in urlList" :key="url.title">
+    <li class="list-inside" v-for="url in urlList" :key="url.title">
       <nuxt-link :to="url.path">{{ url.title }}</nuxt-link>
     </li>
     <iframe

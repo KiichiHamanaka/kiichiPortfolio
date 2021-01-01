@@ -1,11 +1,6 @@
 <template>
   <div>
-    <img
-      width="50%"
-      height="50%"
-      src="~/assets/images/wordart.png"
-      alt="logo"
-    />
+    <img class="w-2/3 h-2/3" src="~/assets/images/wordart.png" alt="logo" />
   </div>
 </template>
 

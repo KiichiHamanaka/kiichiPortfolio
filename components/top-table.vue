@@ -1,5 +1,5 @@
 <template>
-  <div class="top-table">
+  <div>
     <table>
       <tr>
         <td><nuxt-link to="/">TOP</nuxt-link></td>
@@ -39,11 +39,4 @@ import Vue from 'vue'
 export default Vue.extend({})
 </script>
 
-<style>
-.top-table {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-}
-</style>
+<style></style>
